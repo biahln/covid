@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Dados Covid-19</title>
+
+    <style>
+
+    #titulo{position:absolute;
+        margin-top: 2%;
+        margin-left: 2%;
+        font-family: Calibri, sans-serif;
+        color:#F2F2F2;
+    }
+
+    #estados{position:absolute;
+
+        background-color: #151515;
+        width:40%;
+        height:100%;
+        padding: 1% 2%;
+        border-radius:1%;
+        margin-top: 10%;
+        margin-bottom: 10%;
+        margin-left: 11%;
+        font-family: Candara, Helvetica, sans-serif;
+        color:white;
+        font-size:80%;
+        border: 1px solid #2E2E2E;
+    }
+    #estados:hover{
+        transform: scale(1.07);
+        box-shadow: 2px 1px 8px black;
+        border: 2px solid #58FA58;
+        transition: transform .3s ease;
+    }
+
+    #brasil{position:absolute;
+        background-color: #151515;
+        width:18%;
+        height:10%;
+        padding: 1% 1%;
+        border-radius:1%;
+        margin-top: 10%;
+        margin-bottom: 10%;
+        margin-left: 65%;
+        font-family: Candara, Helvetica, sans-serif;
+        color:white;
+        font-size:80%;
+        border: 1px solid #2E2E2E;
+    }
+
+    #eua{position:absolute;
+        background-color: #151515;
+        width:18%;
+        height:10%;
+        padding: 1% 1%;
+        border-radius:1%;
+        margin-top: 20%;
+        margin-bottom: 10%;
+        margin-left: 65%;
+        font-family: Candara, Helvetica, sans-serif;
+        color:white;
+        font-size:80%;
+        border: 1px solid #2E2E2E;
+    }
+
+    #china{position:absolute;
+        background-color: #151515;
+        width:18%;
+        height:10%;
+        padding: 1% 1%;
+        border-radius:1%;
+        margin-top: 30%;
+        margin-bottom: 10%;
+        margin-left: 65%;
+        font-family: Candara, Helvetica, sans-serif;
+        color:white;
+        font-size:80%;
+        border: 1px solid #2E2E2E;
+    }
+
+    #italia{position:absolute;
+        background-color: #151515;
+        width:18%;
+        height:10%;
+        padding: 1% 1%;
+        border-radius:1%;
+        margin-top: 40%;
+        margin-bottom: 10%;
+        margin-left: 65%;
+        font-family: Candara, Helvetica, sans-serif;
+        color:white;
+        font-size:80%;
+        border: 1px solid #2E2E2E;
+    }
+
+    #brasil:hover{
+        transform: scale(1.07);
+        box-shadow: 2px 1px 8px black;
+        border: 2px solid #58FA58;
+        transition: transform .3s ease;
+    }
+
+    #china:hover{
+        transform: scale(1.07);
+        box-shadow: 2px 1px 8px black;
+        border: 2px solid #58FA58;
+        transition: transform .3s ease;
+    }
+
+    #italia:hover{
+        transform: scale(1.07);
+        box-shadow: 2px 1px 8px black;
+        border: 2px solid #58FA58;
+        transition: transform .3s ease;
+    }
+
+    #eua:hover{
+        transform: scale(1.07);
+        box-shadow: 2px 1px 8px black;
+        border: 2px solid #58FA58;
+        transition: transform .3s ease;
+    }
+
+    body {
+       background-image: url(https://pixabay.com/get/52e9dd444d5bab14ead98478ce2136761422dfe05b587848752a7edc.jpg);
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        opacity: 0.5;
+    }
+
+    #opcoes{
+        border-radius:2px;
+        background-color:#2E2E2E;
+        color:white;
+        width:40%;
+        height:5%;
+        font-family:Calibri, sans-serif;
+        font-size:150%;
+        border: 1px solid #2E2E2E;
+    }
+
+    #opcoes:hover{
+        border: 1px solid grey;
+    }
+
+     #casos{position:absolute;
+        background-color:#151515;
+        width:85%;
+        height:35%;
+        font-family: Calibri, sans-serif;
+        border-radius:3px;
+        margin-top:45%;
+        margin-left:5%;
+    }
+
+    #nomecaso{position:absolute;
+        margin-top:25%;
+        margin-left:32%;
+        font-size:500%;
+    }
+
+    #mortes{position:absolute;
+        background-color:#151515;
+        width:45%;
+        height:25%;
+        font-family: Calibri, sans-serif;
+        border-radius:3px;
+        margin-top:10%;
+        margin-left:50%;
+    }
+
+    #recup{position:absolute;
+        background-color:#151515;
+        width:45%;
+        height:25%;
+        font-family: Calibri, sans-serif;
+        border-radius:3px;
+        margin-top:10%;
+        margin-left:2%;
+    }
+
+    .numeros{position:absolute;
+        font-size:350%;
+        margin-top:2%;
+        margin-left:16%;
+    }
+
+    #numeros1{position:absolute;
+        font-size:700%;
+        margin-top:1%;
+        margin-left:16%;
+    }
+
+    </style>
+
+</head>
+<body>
+    <h1 id="titulo">Dados COVID-19 &#127759</h1>
+
+    <div id="estados">
+        <h1 id="titulo1">Dados por estado</h1>
+
+        <select id="opcoes" name="estados-brasil" >
+            <option value="AC">Acre</option>
+            <option value="AL">Alagoas</option>
+            <option value="AP">Amapá</option>
+            <option value="AM">Amazonas</option>
+            <option value="BA">Bahia</option>
+            <option value="CE">Ceará</option>
+            <option value="DF">Distrito Federal</option>
+            <option value="ES">Espírito Santo</option>
+            <option value="GO">Goiás</option>
+            <option value="MA">Maranhão</option>
+            <option value="MT">Mato Grosso</option>
+            <option value="MS">Mato Grosso do Sul</option>
+            <option value="MG">Minas Gerais</option>
+            <option value="PA">Pará</option>
+            <option value="PB">Paraíba</option>
+            <option value="PR">Paraná</option>
+            <option value="PE">Pernambuco</option>
+            <option value="PI">Piauí</option>
+            <option value="RJ">Rio de Janeiro</option>
+            <option value="RN">Rio Grande do Norte</option>
+            <option value="RS">Rio Grande do Sul</option>
+            <option value="RO">Rondônia</option>
+            <option value="RR">Roraima</option>
+            <option value="SC">Santa Catarina</option>
+            <option value="SP">São Paulo</option>
+            <option value="SE">Sergipe</option>
+            <option value="TO">Tocantins</option>
+        </select>
+
+         <div id="casos" align="center">
+        <h1 id="nomecaso">Casos</h1>
+        <h2 id="numeros1">4.243</h2>
+    </div>
+
+    <div id="mortes" align="center">
+        <h1>Óbitos</h1>
+        <h2 class="numeros">243</h2>
+    </div>
+
+    <div id="recup" align="center">
+        <h1>Recuperados</h1>
+        <h2 class="numeros">3.412</h2>
+    </div>
+
+    </div>
+
+    <div id="brasil">
+        <h1 id="titulo2">Brasil</h1>
+    </div>
+
+    <div id="china">
+        <h1 id="titulo3">China</h1>
+    </div>
+
+     <div id="eua">
+        <h1 id="titulo4">EUA</h1>
+    </div>
+
+     <div id="italia">
+        <h1 id="titulo5">Itália</h1>
+    </div>
+
+
+
+
+</body>
+</html>
