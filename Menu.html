@@ -1,0 +1,363 @@
+  
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Dados Covid-19</title>
+
+    <style>
+
+    #titulo{position:absolute;
+        margin-top: 2%;
+        margin-left: 2%;
+        font-family: Calibri, sans-serif;
+        color:#F2F2F2;
+    }
+
+    #estados{position:absolute;
+
+        background-color: #151515;
+        width:40%;
+        height:70%;
+        padding: 1% 2%;
+        border-radius:1%;
+        margin-top: 10%;
+        margin-bottom: 10%;
+        margin-left: 11%;
+        font-family: Candara, Helvetica, sans-serif;
+        color:white;
+        font-size:80%;
+        border: 1px solid #2E2E2E;
+    }
+    #estados:hover{
+        transform: scale(1.07);
+        box-shadow: 2px 1px 8px black;
+        border: 2px solid #58FA58;
+        transition: transform .3s ease;
+    }
+
+    #brasil{position:absolute;
+        background-color: #151515;
+        width:30%;
+        height:42%;
+        padding: 1% 1%;
+        border-radius:1%;
+        margin-top: 10%;
+        margin-bottom: 0px;
+        margin-left: 65%;
+        font-family: Candara, Helvetica, sans-serif;
+        color:white;
+        font-size:80%;
+        border: 1px solid #2E2E2E;
+    }
+
+    #eua{position:absolute;
+        background-color: #151515;
+        width:30%;
+        height:42%;
+        padding: 1% 1%;
+        border-radius:1%;
+        margin-top: 32%;
+        margin-bottom: 10%;
+        margin-left: 65%;
+        font-family: Candara, Helvetica, sans-serif;
+        color:white;
+        font-size:80%;
+        border: 1px solid #2E2E2E;
+    }
+
+    #china{position:absolute;
+        background-color: #151515;
+        width:30%;
+        height:42%;
+        padding: 1% 1%;
+        border-radius:1%;
+        margin-top: 54%;
+        margin-bottom: 10%;
+        margin-left: 65%;
+        font-family: Candara, Helvetica, sans-serif;
+        color:white;
+        font-size:80%;
+        border: 1px solid #2E2E2E;
+    }
+
+    #italia{position:absolute;
+        background-color: #151515;
+        width:30%;
+        height:42%;
+        padding: 1% 1%;
+        border-radius:1%;
+        margin-top: 76%;
+        margin-bottom: 10%;
+        margin-left: 65%;
+        font-family: Candara, Helvetica, sans-serif;
+        color:white;
+        font-size:80%;
+        border: 1px solid #2E2E2E;
+    }
+
+    #brasil:hover{
+        transform: scale(1.07);
+        box-shadow: 2px 1px 8px black;
+        border: 2px solid #58FA58;
+        transition: transform .3s ease;
+    }
+
+    #china:hover{
+        transform: scale(1.07);
+        box-shadow: 2px 1px 8px black;
+        border: 2px solid #58FA58;
+        transition: transform .3s ease;
+    }
+
+    #italia:hover{
+        transform: scale(1.07);
+        box-shadow: 2px 1px 8px black;
+        border: 2px solid #58FA58;
+        transition: transform .3s ease;
+    }
+
+    #eua:hover{
+        transform: scale(1.07);
+        box-shadow: 2px 1px 8px black;
+        border: 2px solid #58FA58;
+        transition: transform .3s ease;
+    }
+
+    body {
+       background-image: url(https://cdn.pixabay.com/photo/2020/03/31/14/04/covid-19-4987797_960_720.jpg);
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        opacity: 0.88;
+    }
+
+    #opcoes{
+        border-radius:2px;
+        background-color:#2E2E2E;
+        color:white;
+        width:40%;
+        height:5%;
+        font-family:Calibri, sans-serif;
+        font-size:150%;
+        border: 1px solid #2E2E2E;
+    }
+
+    #opcoes:hover{
+        border: 1px solid grey;
+    }
+
+     #casos{position:absolute;
+        background-color:#151515;
+        width:85%;
+        height:35%;
+        font-family: Calibri, sans-serif;
+        border-radius:3px;
+        margin-top:45%;
+        margin-left:5%;
+    }
+
+    #nomecaso{position:absolute;
+        margin-top:25%;
+        margin-left:32%;
+        font-size:500%;
+    }
+
+    #mortes{position:absolute;
+        background-color:#151515;
+        width:45%;
+        height:25%;
+        font-family: Calibri, sans-serif;
+        border-radius:3px;
+        margin-top:10%;
+        margin-left:50%;
+    }
+
+    #recup{position:absolute;
+        background-color:#151515;
+        width:45%;
+        height:25%;
+        font-family: Calibri, sans-serif;
+        border-radius:3px;
+        margin-top:10%;
+        margin-left:2%;
+    }
+
+    .numeros{position:absolute;
+        font-size:350%;
+        margin-top:2%;
+        margin-left:16%;
+    }
+
+    #numeros1{position:absolute;
+        font-size:700%;
+        margin-top:1%;
+        margin-left:16%;
+    }
+
+    </style>
+
+</head>
+<body>
+    <h1 id="titulo">Dados COVID-19 &#127759</h1>
+
+    <div id="estados">
+        <h1 id="titulo1">Dados por estado</h1>
+
+        <select id="opcoes" name="estados-brasil" onchange="draw_chart({{data}})">
+            <option value="" disabled selected>Selecione um estado</option>
+            <option value="AC">Acre</option>
+            <option value="AL">Alagoas</option>
+            <option value="AP">Amapá</option>
+            <option value="AM">Amazonas</option>
+            <option value="BA">Bahia</option>
+            <option value="CE">Ceará</option>
+            <option value="DF">Distrito Federal</option>
+            <option value="ES">Espírito Santo</option>
+            <option value="GO">Goiás</option>
+            <option value="MA">Maranhão</option>
+            <option value="MT">Mato Grosso</option>
+            <option value="MS">Mato Grosso do Sul</option>
+            <option value="MG">Minas Gerais</option>
+            <option value="PA">Pará</option>
+            <option value="PB">Paraíba</option>
+            <option value="PR">Paraná</option>
+            <option value="PE">Pernambuco</option>
+            <option value="PI">Piauí</option>
+            <option value="RJ">Rio de Janeiro</option>
+            <option value="RN">Rio Grande do Norte</option>
+            <option value="RS">Rio Grande do Sul</option>
+            <option value="RO">Rondônia</option>
+            <option value="RR">Roraima</option>
+            <option value="SC">Santa Catarina</option>
+            <option value="SP">São Paulo</option>
+            <option value="SE">Sergipe</option>
+            <option value="TO">Tocantins</option>
+        </select><br><br><br>
+
+        <canvas id="estad"></canvas>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+        <script>
+        
+            function draw_chart(data){
+                var select = document.getElementById('opcoes');
+                var value = select.options[select.selectedIndex].text;
+                var uf = select.options[select.selectedIndex].value;
+                var ctx = document.getElementById('estad').getContext('2d');
+                var ufdata = data[uf]
+                
+                var chart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Casos', 'Recuperados', 'Óbitos'],
+                    datasets: [{
+                        label: value,
+                        backgroundColor: ['rgb(88, 250, 88)', 'rgb(217,217,25)', 'rgb(255,0,0)'],
+                        borderColor: 'rgb(255, 255, 255)',
+                        pointRadius: '5',
+                        data: [ufdata[0], ufdata[1], ufdata[2]]
+                 }]
+                },
+                options: {}
+                });
+    
+            }
+            
+        </script>
+
+    </div>
+
+    <div id="brasil">
+        <h1 id="titulo2">Brasil</h1>
+        <canvas id="br"></canvas>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+        <script>
+            var ctx = document.getElementById('br').getContext('2d');
+            var chart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Casos', 'Recuperados', 'Óbitos'],
+                datasets: [{
+                    label: 'Brasil',
+                    backgroundColor: 'rgb(88, 250, 88)',
+                    borderColor: 'rgb(88, 250, 88)',
+                    data: {{ dataBrasil }} 
+             }]
+            },
+            options: {}
+            });
+        </script>
+    </div>
+
+    <div id="china">
+        <h1 id="titulo3">China</h1>
+        <canvas id="chi"></canvas>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+        <script>
+            var ctx = document.getElementById('chi').getContext('2d');
+            var chart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Casos', 'Recuperados', 'Óbitos'],
+                datasets: [{
+                    label: 'China',
+                    backgroundColor: 'rgb(88, 250, 88)',
+                    borderColor: 'rgb(88, 250, 88)',
+                    data: {{ dataChina }}
+             }]
+            },
+            options: {}
+            });
+        </script>
+    </div>
+
+     <div id="eua">
+        <h1 id="titulo4">EUA</h1>
+         <canvas id="eu"></canvas>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+        <script>
+            var ctx = document.getElementById('eu').getContext('2d');
+            var chart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Casos', 'Recuperados', 'Óbitos'],
+                datasets: [{
+                    label: 'EUA',
+                    backgroundColor: 'rgb(88, 250, 88)',
+                    borderColor: 'rgb(88, 250, 88)',
+                    data: {{ dataUS }}
+             }]
+            },
+            options: {}
+            });
+        </script>
+    </div>
+
+     <div id="italia">
+        <h1 id="titulo5">Itália</h1>
+         <canvas id="ita"></canvas>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+        <script>
+            var ctx = document.getElementById('ita').getContext('2d');
+            var chart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Casos', 'Recuperados', 'Óbitos'],
+                datasets: [{
+                    label: 'Itália',
+                    backgroundColor: 'rgb(88, 250, 88)',
+                    borderColor: 'rgb(88, 250, 88)',
+                    data: {{ dataItaly }}
+             }]
+            },
+            options: {}
+            });
+        </script>
+    </div>
+
+
+
+
+</body>
+</html
